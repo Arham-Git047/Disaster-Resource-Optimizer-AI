@@ -70,4 +70,11 @@ Your Report ID: ${newNeed._id}`
   }
 );
 
+// Twilio-style webhook (expects urlencoded body)
+router.post('/', (req, res) => {
+  console.log('SMS webhook received:', req.body);
+  // TODO: validate Twilio signature if required, and process message
+  res.json({ success: true });
+});
+
 export default router;
